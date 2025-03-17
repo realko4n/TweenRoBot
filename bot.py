@@ -49,18 +49,7 @@ def send_pic(m):
 #################################################################################################################################################################################################
 
 @bot.message_handler(commands=['start'])
-def welcome(m):
-    cid = m.chat.id
-    markup = types.InlineKeyboardMarkup()
-    b = types.InlineKeyboardButton("Help",callback_data='help')
-    c = types.InlineKeyboardButton("About",callback_data='amir')
-    markup.add(b,c)
-    nn = types.InlineKeyboardButton("Inline Mode", switch_inline_query='')
-    oo = types.InlineKeyboardButton("Channel", url='https://telegram.me/offlineteam')
-    markup.add(nn,oo)
-    id = m.from_user.id
-    redis.sadd('memberspy',id)
-    bot.send_message(cid, "Hi \n\n Welcome To TweenRoBOT \n\n Please Choose One :)", disable_notification=True, reply_markup=markup)
+
 
 #################################################################################################################################################################################################
 
