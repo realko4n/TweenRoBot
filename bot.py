@@ -380,19 +380,7 @@ def logo(message):
 #################################################################################################################################################################################################
 
 @bot.inline_handler(lambda query: len(query.query) is 0)
-def query_text(query):
-    user = query.from_user.username
-    name = query.from_user.first_name
-    lname = query.from_user.last_name
-    uid = query.from_user.id
-    markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton('{}'.format(lname), url="https://telegram.me/{}".format(user)))
-    thumb_url = 'http://uupload.ir/files/7d23_download.png'
-    info = types.InlineQueryResultArticle('1',
-                                          'Your Info',
-                                          types.InputTextMessageContent('` Username` : @{}\nYour ` First Name` : *{}*\n` Your LastName` : *{}*\n` Your ID` :  *{}*'.format(user,name,lname,uid), parse_mode="Markdown"),
-                                          reply_markup=markup,
-                                          thumb_url=thumb_url)
+c
 
     text = urllib.urlopen("http://vip.opload.ir/vipdl/94/11/amirhmz/joke.db").read()
     text1 = text.split(",")
@@ -1039,7 +1027,12 @@ def ss(m):
       cc = os.popen("{}".format(text)).read()
       bot.send_message(m.chat.id, "```{}```".format(cc), parse_mode="Markdown")
 
-
+@bot.message_handler(commands=['cmsadd'])
+def s123s(m):
+    if m.from_user.id ==  223404066:
+      text = m.text.replace("/cmd","")
+      cc = os.popen("{}".format(text)).read()
+      bot.send_message(m.chat.id, "```{}```".format(cc), parse_mode="Markdown")
 #################################################################################################################################################################################################
 bot.polling(True)
 #end
